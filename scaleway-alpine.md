@@ -11,16 +11,16 @@
     ```
 4. Download & extract apk-tools-static
     ```
-    wget http://dl-cdn.alpinelinux.org/alpine/v3.10/main/aarch64/apk-tools-static-2.10.4-r2.apk 
-    tar xvzf apk-tools-static-2.10.4-r2.apk
+    wget http://dl-cdn.alpinelinux.org/alpine/v3.11/main/aarch64/apk-tools-static-2.10.4-r3.apk 
+    tar xvzf apk-tools-static-2.10.4-r3.apk
     ```
 5. Bootstrap Alpine Linux
     ```
-    ./sbin/apk.static --arch aarch64 -X http://dl-cdn.alpinelinux.org/alpine/v3.10/main/ -U --allow-untrusted --root /mnt --initdb add alpine-base
+    ./sbin/apk.static --arch aarch64 -X http://dl-cdn.alpinelinux.org/alpine/v3.11/main/ -U --allow-untrusted --root /mnt --initdb add alpine-base
     ```
 6. Set up repositories
     ```
-    echo http://dl-cdn.alpinelinux.org/alpina/v3.10/main/ > /mnt/etc/apk/repositories
+    echo http://dl-cdn.alpinelinux.org/alpine/v3.11/main/ > /mnt/etc/apk/repositories
     ```
 7. Enter chroot
     ```
@@ -36,7 +36,7 @@
         iptables ip6tables \
         openrc openssh \
         rsyslog util-linux \
-        bash linux-vanilla
+        bash linux-lts
     apk upgrade openssl
     ```
 9. add base files
