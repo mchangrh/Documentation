@@ -1,0 +1,32 @@
+# mchang.name SSH config
+
+Port 22
+Protocol 2
+ListenAddress 0.0.0.0
+#ListenAddress ::
+
+HostKey /etc/ssh/ssh_host_ed25519_key
+HostKey /etc/ssh/ssh_host_rsa_key
+
+# Logging
+SyslogFacility AUTH
+LogLevel VERBOSE
+
+# Authentication:
+PermitRootLogin without-password
+MaxAuthTries 3
+MaxSessions 2
+
+PubkeyAuthentication yes
+PasswordAuthentication no
+
+# Auth & Keys
+KexAlgorithms curve25519-sha256@libssh.org,
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com
+
+# Rekey to prevent MITM @ 1G / 30min
+RekeyLimit 1G 1800
+
+# override default of no subsystems
+Subsystem    sftp    /usr/lib/openssh/sftp-server
